@@ -88,6 +88,77 @@ st.markdown("""
         padding-top: 4px !important;
         padding-bottom: 4px !important;
     }
+
+    /* Optimización Móvil y Adaptabilidad para Teléfonos Celulares */
+    @media (max-width: 768px) {
+        .block-container {
+            padding-top: 6px !important;
+            padding-left: 0.65rem !important;
+            padding-right: 0.65rem !important;
+            padding-bottom: 1.5rem !important;
+        }
+        div[data-testid="stAppViewBlockContainer"] {
+            padding-top: 6px !important;
+        }
+        .main-header {
+            padding: 14px 16px !important;
+            margin-bottom: 12px !important;
+            border-radius: 10px !important;
+        }
+        .main-header h1 {
+            font-size: 1.28rem !important;
+            line-height: 1.25 !important;
+        }
+        .main-header p {
+            font-size: 0.82rem !important;
+            margin-top: 6px !important;
+            line-height: 1.4 !important;
+        }
+        /* Apilamiento vertical adaptativo de columnas en móvil */
+        div[data-testid="stHorizontalBlock"] {
+            flex-wrap: wrap !important;
+            gap: 10px !important;
+        }
+        div[data-testid="column"] {
+            min-width: 100% !important;
+            flex: 1 1 100% !important;
+        }
+        /* Pestañas táctiles con desplazamiento horizontal fluido */
+        div[data-baseweb="tab-list"] {
+            gap: 6px !important;
+            overflow-x: auto !important;
+            flex-wrap: nowrap !important;
+            -webkit-overflow-scrolling: touch !important;
+            scrollbar-width: none !important;
+            padding-bottom: 4px !important;
+        }
+        div[data-baseweb="tab-list"]::-webkit-scrollbar {
+            display: none !important;
+        }
+        div[data-baseweb="tab"] {
+            padding: 8px 12px !important;
+            font-size: 0.84rem !important;
+            white-space: nowrap !important;
+        }
+        /* Botones táctiles adaptativos de fácil pulsación */
+        .stButton > button, div[data-testid="stForm"] button {
+            min-height: 48px !important;
+            font-size: 0.98rem !important;
+            font-weight: 700 !important;
+            width: 100% !important;
+            border-radius: 8px !important;
+        }
+        /* Cajas de métricas responsivas */
+        div[data-testid="stMetric"] {
+            padding: 10px 12px !important;
+        }
+        div[data-testid="stMetricValue"] {
+            font-size: 1.4rem !important;
+        }
+        div[data-testid="stMetricLabel"] {
+            font-size: 0.78rem !important;
+        }
+    }
 </style>
 """, unsafe_allow_html=True)
 
