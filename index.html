@@ -861,22 +861,31 @@
                 <div class="card-top">
                     <span class="card-phase">Fase 4: Síntesis Visual y Normas APA 7</span>
                     <h3 class="card-title"><i class="fa-solid fa-file-pdf" style="color:#ef4444;"></i> 3. Póster Académico Oficial (Infografía PDF)</h3>
+                    
+                    <!-- Vista previa en miniatura del póster -->
+                    <div class="img-wrapper" style="height: 175px; margin-bottom: 14px; border-radius: 8px; border: 1px solid var(--border);" onclick="openLightbox('poster/poster_cardiopredict_ai_2_preview.png', 'Póster Infográfico Oficial: CardioPredict AI 2.0', 'Sistema Inteligente de Triaje Clínico mediante Deep Learning (PyTorch) y SQL en Datos Multicéntricos — CUN Grupo 12')">
+                        <img src="poster/poster_cardiopredict_ai_2_preview.png" alt="Póster CardioPredict AI 2.0" style="width: 100%; height: 100%; object-fit: cover; object-position: top;">
+                    </div>
+
                     <p class="card-desc">
-                        Infografía científica estructurada con planteamiento del problema, ruta en 5 pasos, diagramas de capas de la red neuronal y normas APA 7.
+                        Infografía científica oficial de 8 láminas estructurada con planteamiento del problema en urgencias, gestión relacional en SQLite, topología de la Red Neuronal profunda en PyTorch, comparativa frente a ACA 1 y semáforo de triaje clínico.
                     </p>
                     <ul class="feature-bullets">
-                        <li><i class="fa-solid fa-circle-check"></i> <strong>Rigor Académico:</strong> Formulación del problema, pilar salud (918 pacientes, 4 hospitales) y preguntas orientadoras.</li>
-                        <li><i class="fa-solid fa-circle-check"></i> <strong>Arquitectura de Red:</strong> Diagrama de capas densas, convoluciones 1D y justificación matemática.</li>
-                        <li><i class="fa-solid fa-circle-check"></i> <strong>Documento Fuente y Prompts:</strong> Archivo maestro para NotebookLM y especificación técnica de las 10 láminas.</li>
+                        <li><i class="fa-solid fa-circle-check"></i> <strong>Rigor Académico:</strong> Formulación clínica del problema ("El Falso Negativo como enemigo"), población multicéntrica (918 pacientes) y preguntas orientadoras.</li>
+                        <li><i class="fa-solid fa-circle-check"></i> <strong>Arquitectura & Penalización:</strong> Diagrama de capas densas (64-32-16), regularización Dropout y penalización asimétrica de falsos negativos (`pos_weight = 1.2`, umbral $\tau = 0.45$).</li>
+                        <li><i class="fa-solid fa-circle-check"></i> <strong>Resultados & Ecosistema:</strong> Salto al 93.14% de Sensibilidad (Recall), código QR para prueba en vivo y enlaces al repositorio GitHub.</li>
                     </ul>
                 </div>
                 <div class="card-footer">
-                    <a href="poster/documento_fuente_poster_infografia_aca2.md" target="_blank" class="btn btn-primary" style="background:#ef4444; border-color:#dc2626;">
-                        <i class="fa-solid fa-file-lines"></i> Ver Documento Fuente de Estudio
+                    <a href="poster/CardioPredict_AI_2_Poster_Infografia.pdf" target="_blank" class="btn btn-primary" style="background:#ef4444; border-color:#dc2626;">
+                        <i class="fa-solid fa-file-pdf"></i> Visualizar Póster Oficial (PDF)
                     </a>
-                    <a href="poster/prompts_notebooklm_aca2.md" target="_blank" class="btn btn-outline">
-                        <i class="fa-solid fa-wand-magic-sparkles"></i> Prompts NotebookLM
+                    <a href="poster/CardioPredict_AI_2_Poster_Infografia.pdf" download="CardioPredict_AI_2_Poster_Infografia_CUN.pdf" class="btn btn-accent" style="background:#0284c7; border-color:#0369a1;">
+                        <i class="fa-solid fa-download"></i> Descargar PDF Original
                     </a>
+                    <button class="btn btn-outline" onclick="openLightbox('poster/poster_cardiopredict_ai_2_preview.png', 'Póster Infográfico Oficial: CardioPredict AI 2.0', 'Sistema Inteligente de Triaje Clínico mediante Deep Learning (PyTorch) y SQL en Datos Multicéntricos — CUN Grupo 12')">
+                        <i class="fa-solid fa-magnifying-glass-plus"></i> Vista Rápida (Zoom HD)
+                    </button>
                 </div>
             </div>
 
@@ -966,16 +975,37 @@
                 </div>
             </div>
 
-            <div class="gallery-card" style="grid-column: span 2;">
+            <div class="gallery-card">
                 <div class="img-wrapper" onclick="openLightbox('assets/head_to_head_comparison.png', 'Evolución Científica: ACA 1 (Random Forest) vs ACA 2 (Deep Learning)', 'Mejora de +7.85% en Recall médico, +3.26% en Exactitud y +0.82% en ROC-AUC.')">
                     <img src="assets/head_to_head_comparison.png" alt="Comparativa ACA 1 vs ACA 2">
                 </div>
                 <div class="gallery-info">
-                    <div class="gallery-title">Comparativa Científica Oficial: ACA 1 vs ACA 2</div>
-                    <div class="gallery-caption">Contraste cuantitativo riguroso entre Machine Learning Clásico (Random Forest) y Deep Learning (Deep MLP & 1D-CNN).</div>
-                    <span class="action-link" onclick="openLightbox('assets/head_to_head_comparison.png', 'Comparativa ACA 1 vs ACA 2', 'Evolución cuantitativa de las 5 métricas rectoras.')">
+                    <div class="gallery-title">Comparativa Oficial: ACA 1 vs ACA 2</div>
+                    <div class="gallery-caption">Contraste cuantitativo entre Machine Learning Clásico (Random Forest) y Deep Learning (Deep MLP).</div>
+                    <span class="action-link" onclick="openLightbox('assets/head_to_head_comparison.png', 'Comparativa ACA 1 vs ACA 2', 'Evolución cuantitativa de métricas rectoras.')">
                         <i class="fa-solid fa-magnifying-glass-plus"></i> Ampliar Gráfico HD
                     </span>
+                </div>
+            </div>
+
+            <div class="gallery-card">
+                <div class="img-wrapper" onclick="openLightbox('poster/poster_cardiopredict_ai_2_preview.png', 'Póster Académico Oficial: CardioPredict AI 2.0', 'Sistema Inteligente de Triaje Clínico mediante Deep Learning (PyTorch) y SQL en Datos Multicéntricos — CUN Grupo 12')">
+                    <img src="poster/poster_cardiopredict_ai_2_preview.png" alt="Póster Académico Oficial ACA 2">
+                </div>
+                <div class="gallery-info">
+                    <div class="gallery-title">Póster Académico Oficial (Infografía PDF)</div>
+                    <div class="gallery-caption">Documento final de 8 láminas con justificación clínica, arquitectura de red profunda y semáforo de triaje.</div>
+                    <div style="display:flex; gap:12px; margin-top:10px; flex-wrap:wrap;">
+                        <a href="poster/CardioPredict_AI_2_Poster_Infografia.pdf" target="_blank" class="action-link" style="color:#ef4444;">
+                            <i class="fa-solid fa-eye"></i> Visualizar PDF
+                        </a>
+                        <a href="poster/CardioPredict_AI_2_Poster_Infografia.pdf" download="CardioPredict_AI_2_Poster_Infografia_CUN.pdf" class="action-link" style="color:#0284c7;">
+                            <i class="fa-solid fa-download"></i> Descargar
+                        </a>
+                        <span class="action-link" onclick="openLightbox('poster/poster_cardiopredict_ai_2_preview.png', 'Póster Oficial Infográfico — CardioPredict AI 2.0', 'Síntesis visual del ACA 2')" style="color:#2563eb;">
+                            <i class="fa-solid fa-magnifying-glass-plus"></i> Zoom HD
+                        </span>
+                    </div>
                 </div>
             </div>
 
@@ -1029,6 +1059,15 @@
                         <td><strong>Despliegue Interactivo Streamlit</strong></td>
                         <td>Interfaz clínica en la nube con semáforo de triaje, ajuste de umbral de decisión, recomendaciones AHA/ACC y consola SQL integrada.</td>
                         <td><a href="https://iacun.lat/aprendizajeautomatico/aca2/app/" target="_blank" style="color:#16a34a; font-weight:700;"><i class="fa-solid fa-play"></i> Probar en Producción</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Síntesis</strong></td>
+                        <td><strong>Póster Académico Oficial</strong></td>
+                        <td>Infografía científica estructurada en 8 láminas con el problema a través de los datos, gestión relacional SQL, arquitectura PyTorch y semáforo clínico.</td>
+                        <td>
+                            <a href="poster/CardioPredict_AI_2_Poster_Infografia.pdf" target="_blank" style="color:#ef4444; font-weight:700; margin-right:6px;"><i class="fa-solid fa-file-pdf"></i> Visualizar</a> | 
+                            <a href="poster/CardioPredict_AI_2_Poster_Infografia.pdf" download="CardioPredict_AI_2_Poster_Infografia_CUN.pdf" style="color:#0284c7; font-weight:700; margin-left:6px;"><i class="fa-solid fa-download"></i> Descargar</a>
+                        </td>
                     </tr>
                 </tbody>
             </table>

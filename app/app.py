@@ -700,3 +700,11 @@ with tabs[3]:
       3. Cristhian Javier Garzon Jimenez
       4. Johan Smith Valderrama Sanchez
     """)
+
+    st.markdown("---")
+    st.markdown("""
+    ### 📑 Entregables Oficiales del Proyecto
+    * 📑 **Póster Académico Oficial (PDF):** [Visualizar en línea](https://iacun.lat/aprendizajeautomatico/aca2/poster/CardioPredict_AI_2_Poster_Infografia.pdf) | [Descargar archivo original](https://iacun.lat/aprendizajeautomatico/aca2/poster/CardioPredict_AI_2_Poster_Infografia.pdf)
+    * 💻 **Repositorio GitHub Oficial:** [johansmith/aca2-deep-learning-cun](https://github.com/johansmith/aca2-deep-learning-cun)
+    * 🌐 **Portal Central ACA 2:** [https://iacun.lat/aprendizajeautomatico/aca2/](https://iacun.lat/aprendizajeautomatico/aca2/)
+    """)
