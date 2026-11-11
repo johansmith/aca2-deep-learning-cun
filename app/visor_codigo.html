@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visor de Código Fuente: app.py | CardioPredict AI 2.0</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --bg: #090d16;
+            --surface: #111827;
+            --border: #1f2937;
+            --text: #f3f4f6;
+            --text-muted: #9ca3af;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 24px;
+        }
+        .header-bar {
+            max-width: 1200px;
+            margin: 0 auto 20px auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 20px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+        }
+        .header-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        .header-title i { color: #3b82f6; font-size: 1.4rem; }
+        .btn-group { display: flex; gap: 10px; }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 14px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: white;
+            background: #2563eb;
+            border: 1px solid #1d4ed8;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        .btn:hover { background: #1d4ed8; }
+        .btn-secondary {
+            background: #1f2937;
+            border-color: #374151;
+            color: #e5e7eb;
+        }
+        .btn-secondary:hover { background: #374151; }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        pre[class*="language-"] {
+            margin: 0;
+            padding: 24px;
+            background: #0d1117;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.88rem;
+            line-height: 1.6;
+            border-radius: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="header-bar">
+        <div class="header-title">
+            <i class="fa-solid fa-code"></i>
+            <div>
+                <div>CardioPredict AI 2.0 — Código de Despliegue (<code>app.py</code>)</div>
+                <div style="font-size: 0.8rem; font-weight: 400; color: var(--text-muted);">Especialización en Inteligencia Artificial — CUN | Redes Neuronales en Streamlit</div>
+            </div>
+        </div>
+        <div class="btn-group">
+            <a href="https://iacun.lat/aprendizajeautomatico/aca2/app/" class="btn"><i class="fa-solid fa-play"></i> Probar App en Vivo</a>
+            <a href="https://iacun.lat/aprendizajeautomatico/aca2/" class="btn btn-secondary"><i class="fa-solid fa-house"></i> Volver al Portal</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <pre><code class="language-python" id="code-content">Cargando código fuente...</code></pre>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    <script>
+        fetch('app.py')
+            .then(res => res.text())
+            .then(code => {
+                const el = document.getElementById('code-content');
+                el.textContent = code;
+                Prism.highlightElement(el);
+            })
+            .catch(err => {
+                document.getElementById('code-content').textContent = 'Error cargando app.py: ' + err;
+            });
+    </script>
+</body>
+</html>

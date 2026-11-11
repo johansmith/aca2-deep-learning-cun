@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Oficial de Entregables | ACA N° 2 - Redes Neuronales & Deep Learning | CUN</title>
+    <link rel="icon" type="image/png" href="https://img.icons8.com/fluency/48/heart-with-pulse.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --primary-light: #2563eb;
+            --primary-dark: #0f172a;
+            --accent: #dc2626;
+            --purple: #7c3aed;
+            --success: #16a34a;
+            --warning: #d97706;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* Top Bar Selector de Corte */
+        .academic-switcher {
+            background: #0f172a;
+            color: #94a3b8;
+            padding: 8px 32px;
+            font-size: 0.82rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #1e293b;
+        }
+        .switcher-links {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+        .switcher-link {
+            color: #cbd5e1;
+            text-decoration: none;
+            padding: 3px 10px;
+            border-radius: 6px;
+            transition: all 0.2s;
+            font-weight: 600;
+        }
+        .switcher-link:hover {
+            color: white;
+            background: rgba(255,255,255,0.08);
+        }
+        .switcher-link.active {
+            background: #2563eb;
+            color: white;
+        }
+
+        /* Top Header Bar */
+        .top-nav {
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+            color: white;
+            padding: 18px 32px;
+            box-shadow: 0 4px 16px rgba(15, 23, 42, 0.15);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav-content {
+            max-width: 1320px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .nav-brand i {
+            font-size: 2.2rem;
+            color: #ef4444;
+        }
+        .nav-title {
+            font-size: 1.3rem;
+            font-weight: 800;
+            letter-spacing: -0.3px;
+        }
+        .nav-subtitle {
+            font-size: 0.86rem;
+            opacity: 0.88;
+            font-weight: 400;
+        }
+        .nav-badges {
+            display: grid;
+            grid-template-columns: repeat(2, auto);
+            gap: 6px 12px;
+            justify-content: end;
+            align-items: center;
+        }
+        .badge {
+            background: rgba(255,255,255,0.12);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            border: 1px solid rgba(255,255,255,0.2);
+            white-space: nowrap;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1320px;
+            margin: 32px auto;
+            padding: 0 24px;
+        }
+
+        /* Hero Banner */
+        .hero-banner {
+            background: white;
+            border-radius: 16px;
+            padding: 36px 40px;
+            border: 1px solid var(--border);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.03);
+            margin-bottom: 32px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 8px;
+            height: 100%;
+            background: linear-gradient(to bottom, #2563eb, #7c3aed);
+        }
+        .hero-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #eff6ff;
+            color: #1d4ed8;
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 12px;
+            border: 1px solid #bfdbfe;
+        }
+        .hero-title {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+            line-height: 1.25;
+            margin-bottom: 12px;
+        }
+        .hero-desc {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            max-width: 1050px;
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+
+        .metric-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-top: 24px;
+        }
+        .metric-card {
+            background: #f8fafc;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 16px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            transition: transform 0.2s;
+        }
+        .metric-card:hover {
+            transform: translateY(-2px);
+            border-color: #cbd5e1;
+        }
+        .metric-label {
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: var(--text-muted);
+            letter-spacing: 0.5px;
+        }
+        .metric-value {
+            font-size: 1.85rem;
+            font-weight: 800;
+            color: #1e3a8a;
+        }
+        .metric-sub {
+            font-size: 0.78rem;
+            color: #16a34a;
+            font-weight: 600;
+        }
+
+        /* Section Header */
+        .section-header {
+            margin: 44px 0 24px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+        .section-title {
+            font-size: 1.45rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Deliverables Grid */
+        .deliverables-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+        .deliv-card {
+            background: white;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            transition: all 0.25s ease;
+        }
+        .deliv-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.07);
+            border-color: #cbd5e1;
+        }
+        .card-top {
+            padding: 24px 28px;
+            flex-grow: 1;
+        }
+        .card-phase {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #2563eb;
+            letter-spacing: 0.6px;
+            margin-bottom: 8px;
+            display: block;
+        }
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .card-desc {
+            font-size: 0.92rem;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+            line-height: 1.55;
+        }
+        .feature-bullets {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            font-size: 0.86rem;
+            color: #334155;
+        }
+        .feature-bullets li {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+        .feature-bullets li i {
+            color: #16a34a;
+            margin-top: 4px;
+            font-size: 0.85rem;
+        }
+        .card-footer {
+            background: #f8fafc;
+            padding: 16px 28px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 9px 18px;
+            border-radius: 8px;
+            font-size: 0.88rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.2s;
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+        .btn-primary {
+            background: #2563eb;
+            color: white;
+            border-color: #1d4ed8;
+        }
+        .btn-primary:hover {
+            background: #1d4ed8;
+        }
+        .btn-accent {
+            background: #0284c7;
+            color: white;
+            border-color: #0369a1;
+        }
+        .btn-accent:hover {
+            background: #0369a1;
+        }
+        .btn-outline {
+            background: white;
+            color: #334155;
+            border-color: #cbd5e1;
+        }
+        .btn-outline:hover {
+            background: #f1f5f9;
+            border-color: #94a3b8;
+        }
+
+        /* Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        .gallery-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            display: flex;
+            flex-direction: column;
+        }
+        .img-wrapper {
+            position: relative;
+            background: #f1f5f9;
+            cursor: pointer;
+            overflow: hidden;
+            height: 220px;
+        }
+        .img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        .img-wrapper:hover img {
+            transform: scale(1.04);
+        }
+        .gallery-info {
+            padding: 16px 18px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .gallery-title {
+            font-size: 0.98rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 6px;
+        }
+        .gallery-caption {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            line-height: 1.45;
+            margin-bottom: 12px;
+        }
+        .action-link {
+            font-size: 0.82rem;
+            color: #2563eb;
+            font-weight: 700;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Table */
+        .audit-table-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            margin-bottom: 40px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.9rem;
+        }
+        th {
+            background: #f8fafc;
+            color: #475569;
+            font-weight: 700;
+            padding: 14px 20px;
+            border-bottom: 1px solid var(--border);
+            text-transform: uppercase;
+            font-size: 0.78rem;
+            letter-spacing: 0.5px;
+        }
+        td {
+            padding: 14px 20px;
+            border-bottom: 1px solid var(--border);
+            color: #334155;
+            vertical-align: middle;
+        }
+        tr:last-child td {
+            border-bottom: none;
+        }
+        tr:hover td {
+            background: #f8fafc;
+        }
+
+        /* Lightbox Modal */
+        .lightbox-modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(15, 23, 42, 0.94);
+            backdrop-filter: blur(8px);
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 24px;
+        }
+        .lightbox-content-box {
+            position: relative;
+            max-width: 92vw;
+            max-height: 85vh;
+            background: #0f172a;
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #334155;
+        }
+        .lightbox-content-box img {
+            width: 100%;
+            height: auto;
+            max-height: 75vh;
+            object-fit: contain;
+            display: block;
+        }
+        .lightbox-footer {
+            padding: 12px 20px;
+            background: #1e293b;
+            color: #e2e8f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .lightbox-close {
+            position: absolute;
+            top: 14px;
+            right: 18px;
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        /* Footer */
+        footer {
+            background: #0f172a;
+            color: #94a3b8;
+            padding: 40px 24px;
+            font-size: 0.88rem;
+            margin-top: 60px;
+            border-top: 1px solid #1e293b;
+        }
+        .footer-content {
+            max-width: 1320px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        @media (max-width: 992px) {
+            .deliverables-grid, .gallery-grid, .metric-cards-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-title { font-size: 1.6rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Academic Switcher -->
+    <div class="academic-switcher">
+        <div><strong>Especialización en Inteligencia Artificial — CUN</strong> | Aprendizaje Automático</div>
+        <div class="switcher-links">
+            <a href="https://iacun.lat/aprendizajeautomatico/aca1/" class="switcher-link"><i class="fa-solid fa-clock-rotate-left"></i> ACA 1: Machine Learning Clásico</a>
+            <span class="switcher-link active"><i class="fa-solid fa-brain"></i> ACA 2: Deep Learning & SQL (Actual)</span>
+        </div>
+    </div>
+
+    <!-- Top Navigation Bar -->
+    <header class="top-nav">
+        <div class="nav-content">
+            <div class="nav-brand">
+                <i class="fa-solid fa-heart-pulse"></i>
+                <div>
+                    <div class="nav-title">CardioPredict AI 2.0</div>
+                    <div class="nav-subtitle">Redes Neuronales Artificiales (Deep MLP & 1D-CNN) y Gestión SQL</div>
+                </div>
+            </div>
+            <div class="nav-badges">
+                <span class="badge"><i class="fa-solid fa-user-graduate"></i> Marcela Avila Beltrán</span>
+                <span class="badge"><i class="fa-solid fa-user-graduate"></i> Jaime Andres Cabrera Avendaño</span>
+                <span class="badge"><i class="fa-solid fa-user-graduate"></i> Cristhian Javier Garzon Jimenez</span>
+                <span class="badge"><i class="fa-solid fa-user-graduate"></i> Johan Smith Valderrama Sanchez</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <!-- Hero Banner -->
+        <div class="hero-banner">
+            <span class="hero-tag"><i class="fa-solid fa-microchip"></i> Proyecto Oficial: ACA N° 2 — Deep Learning</span>
+            <h1 class="hero-title">Sistema Inteligente de Triaje y Estratificación Cardiovascular mediante Redes Neuronales Profundas</h1>
+            <p class="hero-desc">
+                Evolución metodológica del proyecto de investigación hacia arquitecturas de <strong>Deep Learning en PyTorch (Deep MLP y 1D-CNN)</strong>,
+                sustentada en la ingestión y consulta relacional estructurada con <strong>SQLite (<code>cardiopredict.db</code>)</strong>,
+                aumento de datos estocástico (Data Augmentation) y despliegue interactivo en la nube con <strong>Streamlit</strong>.
+            </p>
+
+            <div class="metric-cards-grid">
+                <div class="metric-card">
+                    <span class="metric-label">Sensibilidad Clínica (Recall)</span>
+                    <span class="metric-value">93.14%</span>
+                    <span class="metric-sub"><i class="fa-solid fa-arrow-trend-up"></i> +7.85% vs ACA 1 (95/102 detectados)</span>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-label">Área bajo la Curva (ROC-AUC)</span>
+                    <span class="metric-value">90.32%</span>
+                    <span class="metric-sub"><i class="fa-solid fa-check"></i> Discriminación patológica sobresaliente</span>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-label">Exactitud Global (Accuracy)</span>
+                    <span class="metric-value">82.61%</span>
+                    <span class="metric-sub"><i class="fa-solid fa-arrow-trend-up"></i> +3.26% vs Random Forest</span>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-label">Muestras con Data Augmentation</span>
+                    <span class="metric-value">880</span>
+                    <span class="metric-sub"><i class="fa-solid fa-database"></i> +20% muestras sintéticas clínicas</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Catálogo Oficial de Entregables -->
+        <div class="section-header">
+            <div>
+                <span style="font-size:0.8rem; font-weight:700; color:#2563eb; text-transform:uppercase; letter-spacing:0.5px;">Cumplimiento Institucional CUN</span>
+                <h2 class="section-title"><i class="fa-solid fa-folder-open" style="color:#2563eb;"></i> Catálogo Oficial de Entregables (ACA 2)</h2>
+            </div>
+            <div style="font-size:0.88rem; color:var(--text-muted); font-weight:600;">
+                <i class="fa-solid fa-shield-halved" style="color:#16a34a;"></i> 100% Rúbrica Evaluada
+            </div>
+        </div>
+
+        <div class="deliverables-grid">
+
+            <!-- Entregable 1: Notebook -->
+            <div class="deliv-card">
+                <div class="card-top">
+                    <span class="card-phase">Fase 1 y 2: Gestión SQL & Pipeline de Tensores</span>
+                    <h3 class="card-title"><i class="fa-solid fa-book-open" style="color:#d97706;"></i> 1. Cuaderno de Experimentación (Notebook)</h3>
+                    <p class="card-desc">
+                        Código modular, hiper-comentado y 100% reproducible en Google Colab con el flujo completo de los 5 pasos metodológicos.
+                    </p>
+                    <ul class="feature-bullets">
+                        <li><i class="fa-solid fa-circle-check"></i> <strong>Gestión SQL (Paso 1):</strong> Creación de SQLite (<code>cardiopredict.db</code>), inserción de 918 pacientes y queries analíticas.</li>
+                        <li><i class="fa-solid fa-circle-check"></i> <strong>Data Augmentation (Paso 2):</strong> Perturbación gaussiana estocástica controlada con PyTorch (+20% muestras).</li>
+                        <li><i class="fa-solid fa-circle-check"></i> <strong>Deep Learning (Pasos 3 y 4):</strong> Entrenamiento de Deep MLP y 1D-CNN, curvas de Loss y evaluación en 184 pacientes de test.</li>
+                    </ul>
+                </div>
+                <div class="card-footer">
+                    <a href="notebooks/CardioPredict_AI_2_Deep_Learning_CUN.html" target="_blank" class="btn btn-primary">
+                        <i class="fa-solid fa-laptop-file"></i> Ver Cuaderno Interactivo HTML
+                    </a>
+                    <a href="notebooks/CardioPredict_AI_2_Deep_Learning_CUN.ipynb" download class="btn btn-outline">
+                        <i class="fa-solid fa-download"></i> Descargar .ipynb
+                    </a>
+                </div>
+            </div>
+
+            <!-- Entregable 2: Streamlit App -->
+            <div class="deliv-card">
+                <div class="card-top">
+                    <span class="card-phase">Fase 3 y 5: Despliegue en Producción & UI</span>
+                    <h3 class="card-title"><i class="fa-solid fa-laptop-code" style="color:#2563eb;"></i> 2. Aplicación Web Interactiva (Streamlit 2.0)</h3>
+                    <p class="card-desc">
+                        Interfaz médica en producción conectada a las Redes Neuronales serializadas con selector de arquitectura e inferencia en tiempo real.
+                    </p>
+                    <ul class="feature-bullets">
+                        <li><i class="fa-solid fa-circle-check"></i> <strong>Inferencia Dual:</strong> Soporte dinámico para Deep MLP (Recall 93.14%) y 1D-CNN médica.</li>
+                        <li><i class="fa-solid fa-circle-check"></i> <strong>Auditoría SQL en Vivo:</strong> Pestaña dedicada con consola interactiva sobre <code>cardiopredict.db</code>.</li>
+                        <li><i class="fa-solid fa-circle-check"></i> <strong>Soporte al Triaje Clínico:</strong> Calibrador de umbral de decisión y recomendaciones según guías AHA/ACC.</li>
+                    </ul>
+                </div>
+                <div class="card-footer">
+                    <a href="https://iacun.lat/aprendizajeautomatico/aca2/app/" target="_blank" class="btn btn-primary" style="background:#16a34a; border-color:#15803d;">
+                        <i class="fa-solid fa-play"></i> Probar App en Vivo (Cloud)
+                    </a>
+                    <a href="app/visor_codigo.html" target="_blank" class="btn btn-outline">
+                        <i class="fa-solid fa-code"></i> Visor de Código (app.py)
+                    </a>
+                </div>
+            </div>
+
+            <!-- Entregable 3: Póster Infográfico -->
+            <div class="deliv-card">
+                <div class="card-top">
+                    <span class="card-phase">Fase 4: Síntesis Visual y Normas APA 7</span>
+                    <h3 class="card-title"><i class="fa-solid fa-file-pdf" style="color:#ef4444;"></i> 3. Póster Académico Oficial (Infografía PDF)</h3>
+                    <p class="card-desc">
+                        Infografía científica estructurada con planteamiento del problema, ruta en 5 pasos, diagramas de capas de la red neuronal y normas APA 7.
+                    </p>
+                    <ul class="feature-bullets">
+                        <li><i class="fa-solid fa-circle-check"></i> <strong>Rigor Académico:</strong> Formulación del problema, pilar salud (918 pacientes, 4 hospitales) y preguntas orientadoras.</li>
+                        <li><i class="fa-solid fa-circle-check"></i> <strong>Arquitectura de Red:</strong> Diagrama de capas densas, convoluciones 1D y justificación matemática.</li>
+                        <li><i class="fa-solid fa-circle-check"></i> <strong>Documento Fuente y Prompts:</strong> Archivo maestro para NotebookLM y especificación técnica de las 10 láminas.</li>
+                    </ul>
+                </div>
+                <div class="card-footer">
+                    <a href="poster/documento_fuente_poster_infografia_aca2.md" target="_blank" class="btn btn-primary" style="background:#ef4444; border-color:#dc2626;">
+                        <i class="fa-solid fa-file-lines"></i> Ver Documento Fuente de Estudio
+                    </a>
+                    <a href="poster/prompts_notebooklm_aca2.md" target="_blank" class="btn btn-outline">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i> Prompts NotebookLM
+                    </a>
+                </div>
+            </div>
+
+            <!-- Entregable 4: Video y Sustentación -->
+            <div class="deliv-card" id="entregable-video">
+                <div class="card-top">
+                    <span class="card-phase">Fase 5: Sustentación Oficial en Video (3 a 5 min)</span>
+                    <h3 class="card-title"><i class="fa-solid fa-video" style="color:#7c3aed;"></i> 4. Video de Sustentación & Guion Oficial</h3>
+                    <p class="card-desc">
+                        Sustentación técnica oficial de 4 minutos conducida por <strong>Johan Smith Valderrama</strong> en representación del equipo de investigación CUN.
+                    </p>
+                    <ul class="feature-bullets">
+                        <li><i class="fa-solid fa-circle-check"></i> <strong>Estructura en 4 Minutos:</strong> Problema y SQL (min 1), Data Augmentation (min 2), Deep Learning (min 3) y Demo Streamlit (min 4).</li>
+                        <li><i class="fa-solid fa-circle-check"></i> <strong>Guion Paso a Paso:</strong> Redactado formalmente con indicaciones de cámara, transiciones y métricas exactas.</li>
+                        <li><i class="fa-solid fa-circle-check"></i> <strong>Cumplimiento de Tiempo:</strong> Diseñado con cronómetro estricto dentro de la ventana de 3 a 5 minutos.</li>
+                    </ul>
+                </div>
+                <div class="card-footer">
+                    <a href="video/guion_video_sustentacion_aca2.md" target="_blank" class="btn btn-primary" style="background:#7c3aed; border-color:#6d28d9;">
+                        <i class="fa-solid fa-scroll"></i> Leer Guion Oficial de Grabación
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Galería de Evidencias y Curvas de Deep Learning -->
+        <div class="section-header">
+            <div>
+                <span style="font-size:0.8rem; font-weight:700; color:#2563eb; text-transform:uppercase; letter-spacing:0.5px;">Auditoría Científica</span>
+                <h2 class="section-title"><i class="fa-solid fa-chart-line" style="color:#2563eb;"></i> Curvas de Aprendizaje y Evaluación Cuantitativa</h2>
+            </div>
+            <div style="font-size:0.88rem; color:var(--text-muted);">Haz clic en cualquier gráfico para ampliarlo en alta definición</div>
+        </div>
+
+        <div class="gallery-grid">
+
+            <div class="gallery-card">
+                <div class="img-wrapper" onclick="openLightbox('assets/loss_curves.png', 'Curvas de Pérdida (Loss Curves) por Época — Deep MLP', 'Descenso continuo del Binary Cross-Entropy Loss desde 0.68 hasta 0.30 con convergencia estable en validación.')">
+                    <img src="assets/loss_curves.png" alt="Curvas de Pérdida Deep Learning">
+                </div>
+                <div class="gallery-info">
+                    <div class="gallery-title">Curvas de Pérdida (Loss)</div>
+                    <div class="gallery-caption">Convergencia formal en entrenamiento y validación demostrando ausencia de sobreajuste (overfitting).</div>
+                    <span class="action-link" onclick="openLightbox('assets/loss_curves.png', 'Curvas de Pérdida (Loss Curves)', 'Evolución de la pérdida durante 50 épocas con optimizador AdamW.')">
+                        <i class="fa-solid fa-magnifying-glass-plus"></i> Ampliar Gráfico HD
+                    </span>
+                </div>
+            </div>
+
+            <div class="gallery-card">
+                <div class="img-wrapper" onclick="openLightbox('assets/accuracy_curves.png', 'Evolución de Exactitud y Sensibilidad Clínica (Recall)', 'El recall en validación alcanza valores estables por encima del 86% a partir de la época 20.')">
+                    <img src="assets/accuracy_curves.png" alt="Curvas de Exactitud y Recall">
+                </div>
+                <div class="gallery-info">
+                    <div class="gallery-title">Evolución de Exactitud & Recall</div>
+                    <div class="gallery-caption">Seguimiento por época del rendimiento diagnóstico y la capacidad de detección de la red neuronal.</div>
+                    <span class="action-link" onclick="openLightbox('assets/accuracy_curves.png', 'Curvas de Rendimiento', 'Exactitud y Sensibilidad clínica por época.')">
+                        <i class="fa-solid fa-magnifying-glass-plus"></i> Ampliar Gráfico HD
+                    </span>
+                </div>
+            </div>
+
+            <div class="gallery-card">
+                <div class="img-wrapper" onclick="openLightbox('assets/confusion_matrix_deep_learning.png', 'Matriz de Confusión en Prueba (N=184 Pacientes)', 'Deep MLP en prueba independiente: 95 de 102 pacientes enfermos detectados correctamente (Sensibilidad 93.14%).')">
+                    <img src="assets/confusion_matrix_deep_learning.png" alt="Matriz de Confusión Clínica">
+                </div>
+                <div class="gallery-info">
+                    <div class="gallery-title">Matriz de Confusión (N=184)</div>
+                    <div class="gallery-caption">Detección de 95 sobre 102 casos patológicos reales, reduciendo falsos negativos a solo 7.</div>
+                    <span class="action-link" onclick="openLightbox('assets/confusion_matrix_deep_learning.png', 'Matriz de Confusión', 'Evaluación médica sobre 184 pacientes de 4 hospitales.')">
+                        <i class="fa-solid fa-magnifying-glass-plus"></i> Ampliar Gráfico HD
+                    </span>
+                </div>
+            </div>
+
+            <div class="gallery-card">
+                <div class="img-wrapper" onclick="openLightbox('assets/roc_curve_deep_learning.png', 'Curva ROC Comparativa: Deep MLP vs 1D-CNN', 'Deep MLP alcanza un área bajo la curva de 0.9032 y 1D-CNN de 0.8904.')">
+                    <img src="assets/roc_curve_deep_learning.png" alt="Curva ROC Deep Learning">
+                </div>
+                <div class="gallery-info">
+                    <div class="gallery-title">Curvas ROC Comparativas</div>
+                    <div class="gallery-caption">Capacidad de discriminación diagnóstica superior al 90% en la Red Neuronal Profunda.</div>
+                    <span class="action-link" onclick="openLightbox('assets/roc_curve_deep_learning.png', 'Curva ROC', 'Comparación entre Deep MLP y 1D-CNN médica.')">
+                        <i class="fa-solid fa-magnifying-glass-plus"></i> Ampliar Gráfico HD
+                    </span>
+                </div>
+            </div>
+
+            <div class="gallery-card" style="grid-column: span 2;">
+                <div class="img-wrapper" onclick="openLightbox('assets/head_to_head_comparison.png', 'Evolución Científica: ACA 1 (Random Forest) vs ACA 2 (Deep Learning)', 'Mejora de +7.85% en Recall médico, +3.26% en Exactitud y +0.82% en ROC-AUC.')">
+                    <img src="assets/head_to_head_comparison.png" alt="Comparativa ACA 1 vs ACA 2">
+                </div>
+                <div class="gallery-info">
+                    <div class="gallery-title">Comparativa Científica Oficial: ACA 1 vs ACA 2</div>
+                    <div class="gallery-caption">Contraste cuantitativo riguroso entre Machine Learning Clásico (Random Forest) y Deep Learning (Deep MLP & 1D-CNN).</div>
+                    <span class="action-link" onclick="openLightbox('assets/head_to_head_comparison.png', 'Comparativa ACA 1 vs ACA 2', 'Evolución cuantitativa de las 5 métricas rectoras.')">
+                        <i class="fa-solid fa-magnifying-glass-plus"></i> Ampliar Gráfico HD
+                    </span>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Tabla Resumen de Auditoría Metodológica -->
+        <div class="section-header">
+            <div>
+                <span style="font-size:0.8rem; font-weight:700; color:#2563eb; text-transform:uppercase; letter-spacing:0.5px;">Trazabilidad Paso a Paso</span>
+                <h2 class="section-title"><i class="fa-solid fa-list-check" style="color:#2563eb;"></i> Trazabilidad del Flujo Metodológico en 5 Pasos</h2>
+            </div>
+        </div>
+
+        <div class="audit-table-card">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Paso Oficial</th>
+                        <th>Fase del Proyecto</th>
+                        <th>Descripción Técnica Implementada</th>
+                        <th>Acceso Directo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Paso 1</strong></td>
+                        <td><strong>Exploración y Gestión SQL</strong></td>
+                        <td>Almacenamiento de 918 pacientes en base de datos SQLite (<code>cardiopredict.db</code>) con consultas de prevalencia y correlación de dolor torácico.</td>
+                        <td><a href="https://iacun.lat/aprendizajeautomatico/aca2/app/" target="_blank" style="color:#2563eb; font-weight:700;"><i class="fa-solid fa-database"></i> Ver SQL en la App</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Paso 2</strong></td>
+                        <td><strong>Pipeline & Data Augmentation</strong></td>
+                        <td>Pipeline scikit-learn con ColumnTransformer, imputación por medianas clínicas y aumento de datos estocástico (+20% muestras sintéticas).</td>
+                        <td><a href="notebooks/CardioPredict_AI_2_Deep_Learning_CUN.html" target="_blank" style="color:#2563eb; font-weight:600;"><i class="fa-solid fa-code"></i> Ver en Cuaderno</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Paso 3</strong></td>
+                        <td><strong>Modelado con Redes Neuronales</strong></td>
+                        <td>Implementación en PyTorch de Deep MLP (64-32-16 con Dropout) y Red Convolucional 1D-CNN para biomarcadores clínicos.</td>
+                        <td><a href="notebooks/CardioPredict_AI_2_Deep_Learning_CUN.html" target="_blank" style="color:#2563eb; font-weight:600;"><i class="fa-solid fa-brain"></i> Ver Arquitecturas</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Paso 4</strong></td>
+                        <td><strong>Evaluación & Curvas de Loss</strong></td>
+                        <td>Monitoreo de curvas de pérdida BCE, evaluación sobre 184 pacientes de prueba, sensibilidad del 93.14% y ROC-AUC del 90.32%.</td>
+                        <td><span onclick="openLightbox('assets/head_to_head_comparison.png', 'Comparativa Científica', 'Métricas oficiales')" style="color:#2563eb; font-weight:700; cursor:pointer;"><i class="fa-solid fa-chart-column"></i> Ver Comparativa</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Paso 5</strong></td>
+                        <td><strong>Despliegue Interactivo Streamlit</strong></td>
+                        <td>Interfaz clínica en la nube con semáforo de triaje, ajuste de umbral de decisión, recomendaciones AHA/ACC y consola SQL integrada.</td>
+                        <td><a href="https://iacun.lat/aprendizajeautomatico/aca2/app/" target="_blank" style="color:#16a34a; font-weight:700;"><i class="fa-solid fa-play"></i> Probar en Producción</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <!-- Lightbox Modal -->
+    <div id="lightboxModal" class="lightbox-modal" onclick="closeLightbox(event)">
+        <div class="lightbox-content-box" onclick="event.stopPropagation()">
+            <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+            <img id="lightboxImg" src="" alt="Ampliación HD">
+            <div class="lightbox-footer">
+                <div>
+                    <strong id="lightboxTitle">Título</strong>
+                    <div id="lightboxDesc" style="font-size:0.8rem; color:#94a3b8;">Descripción</div>
+                </div>
+                <button class="btn btn-outline" style="padding:4px 10px; font-size:0.75rem;" onclick="closeLightbox()">Cerrar (Esc)</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div>
+                <div style="font-weight: 800; color: white; margin-bottom: 4px;">Corporación Unificada Nacional de Educación Superior (CUN)</div>
+                <div>Especialización en Inteligencia Artificial | Asignatura: Aprendizaje Automático | Docente: Dr. Hamilton Rivera Flor</div>
+            </div>
+            <div style="text-align: right;">
+                <div><strong>Proyecto ACA 2:</strong> Redes Neuronales Artificiales & Despliegue en Streamlit</div>
+                <div style="font-size: 0.8rem; color: #64748b;">Normas APA 7 | UCI Heart Disease Dataset (918 pacientes)</div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function openLightbox(src, title, desc) {
+            document.getElementById('lightboxImg').src = src;
+            document.getElementById('lightboxTitle').textContent = title;
+            document.getElementById('lightboxDesc').textContent = desc;
+            document.getElementById('lightboxModal').style.display = 'flex';
+        }
+
+        function closeLightbox(e) {
+            if (!e || e.target.id === 'lightboxModal' || e.target.className === 'lightbox-close') {
+                document.getElementById('lightboxModal').style.display = 'none';
+            }
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            }
+        });
+    </script>
+</body>
+</html>
