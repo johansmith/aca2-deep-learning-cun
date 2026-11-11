@@ -269,7 +269,8 @@ with st.sidebar:
     st.markdown("""
     🔗 **Navegación Rápida:**  
     • [Portal Principal ACA 2](https://iacun.lat/aprendizajeautomatico/aca2/)  
-    • [Portal ACA 1](https://iacun.lat/aprendizajeautomatico/aca1/)
+    • [Portal ACA 1](https://iacun.lat/aprendizajeautomatico/aca1/)  
+    • [Repositorio GitHub](https://github.com/johansmith/aca2-deep-learning-cun)
     """)
 
 
