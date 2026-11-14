@@ -162,11 +162,16 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# Rutas del proyecto
-BASE_DIR = Path(__file__).resolve().parent.parent
-MODELS_DIR = BASE_DIR / "models"
-DB_PATH = BASE_DIR / "database" / "cardiopredict.db"
-ASSETS_DIR = BASE_DIR / "assets"
+# Rutas del proyecto (soporte tanto para estructura completa de repo como paquete standalone)
+_CURRENT_DIR = Path(__file__).resolve().parent
+if (_CURRENT_DIR.parent / "models").exists():
+    BASE_DIR = _CURRENT_DIR.parent
+else:
+    BASE_DIR = _CURRENT_DIR
+
+MODELS_DIR = (BASE_DIR / "models") if (BASE_DIR / "models").exists() else (_CURRENT_DIR / "models")
+DB_PATH = (BASE_DIR / "database" / "cardiopredict.db") if (BASE_DIR / "database" / "cardiopredict.db").exists() else (_CURRENT_DIR / "database" / "cardiopredict.db")
+ASSETS_DIR = (BASE_DIR / "assets") if (BASE_DIR / "assets").exists() else (_CURRENT_DIR / "assets")
 
 DEVICE = torch.device("cpu")
 
